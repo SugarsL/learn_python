@@ -1,6 +1,8 @@
 import re
 import requests
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
 import sys
 
 sys.path.append(r'/Users/lingjiajun/PycharmProjects/learn_python/venv')
@@ -21,14 +23,11 @@ def retrieve_dji_list():
     return dji_list
 
 
-data = retrieve_dji_list()
-print(data)
+
 
 
 
 if __name__=="__main__":
-
-
 
     app=QtWidgets.QApplication(sys.argv)
 
@@ -37,6 +36,25 @@ if __name__=="__main__":
     ui=Ui_Form()#这里改成你自己的项目名称，如果你没特意改过，就默认就行
 
     ui.setupUi(widget)
+
+    '''add item'''
+    data = retrieve_dji_list()
+    #print(data[0]['code'])
+    #print(data[1])
+    ui.tableWidget.setColumnCount(3)
+    # 设置表格列数
+    ui.tableWidget.setRowCount(30)
+    # 设置表格行数
+
+    for i in range(len(data)):
+        newitem0 = QTableWidgetItem(str(data[i]['code']))
+        newitem1 = QTableWidgetItem(str(data[i]['name']))
+        newitem2 = QTableWidgetItem(str(data[i]['price']))
+
+        ui.tableWidget.setItem(i, 0, newitem0)
+        ui.tableWidget.setItem(i, 1, newitem1)
+        ui.tableWidget.setItem(i, 2, newitem2)
+
 
     widget.show()
 
