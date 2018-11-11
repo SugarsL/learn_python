@@ -1,6 +1,10 @@
 import re
 import requests
-import w7-qt
+from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+
+sys.path.append(r'/Users/lingjiajun/PycharmProjects/learn_python/venv')
+from w7qt import Ui_Form
 
 def retrieve_dji_list():
     try:
@@ -24,7 +28,7 @@ print(data)
 
 if __name__=="__main__":
 
-    import sys
+
 
     app=QtWidgets.QApplication(sys.argv)
 
@@ -36,5 +40,5 @@ if __name__=="__main__":
 
     widget.show()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())
 
