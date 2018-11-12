@@ -117,7 +117,8 @@ def show_plot(ui):
     #    if not value:
     #        fields_to_drop.append(key)
     quotesdf = quotesdf.drop(fields_to_drop, axis=1)
-    quotesdf.plot()
+    quotesdf.plot(title=code)
+
     plt.show()
     print('-----------show_plot------------\n')
 
