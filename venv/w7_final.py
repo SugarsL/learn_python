@@ -1,12 +1,13 @@
 import re
 import requests
+import pandas as pd
+import matplotlib.pyplot as plt
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 import sys
-
-sys.path.append(r'/Users/lingjiajun/PycharmProjects/learn_python/venv')
 from w7qt import Ui_Form
+
 
 def retrieve_dji_list():
     try:
@@ -23,28 +24,21 @@ def retrieve_dji_list():
     return dji_list
 
 
+def update_item(ui,first = False):
 
-
-
-
-if __name__=="__main__":
-
-    app=QtWidgets.QApplication(sys.argv)
-
-    widget=QtWidgets.QWidget()
-
-    ui=Ui_Form()#这里改成你自己的项目名称，如果你没特意改过，就默认就行
-
-    ui.setupUi(widget)
-
+    #ui.tableWidget.clearContents()
     '''add item'''
     data = retrieve_dji_list()
     #print(data[0]['code'])
     #print(data[1])
-    ui.tableWidget.setColumnCount(3)
-    # 设置表格列数
-    ui.tableWidget.setRowCount(30)
-    # 设置表格行数
+    if first:
+        ui.tableWidget.setColumnCount(3)
+        # 设置表格列数
+        ui.tableWidget.setRowCount(30)
+        # 设置表格行数
+
+        header = ["code", "name", "price"]
+        ui.tableWidget.setHorizontalHeaderLabels(header)
 
     for i in range(len(data)):
         newitem0 = QTableWidgetItem(str(data[i]['code']))
@@ -54,9 +48,27 @@ if __name__=="__main__":
         ui.tableWidget.setItem(i, 0, newitem0)
         ui.tableWidget.setItem(i, 1, newitem1)
         ui.tableWidget.setItem(i, 2, newitem2)
+    print('-------------update_item-------------\n')
 
+
+def show_plot():
+    print('-----------show_plot------------\n')
+
+if __name__=="__main__":
+
+    app = QtWidgets.QApplication(sys.argv)
+
+    widget = QtWidgets.QWidget()
+
+    ui = Ui_Form()
+
+    ui.setupUi(widget)
+
+    ui.pushButton_refresh.clicked.connect(lambda :update_item(ui, False)) #使用lambda做槽函数传参调用
+    ui.pushButton_show_msg.clicked.connect(show_plot)
+
+    update_item(ui, True)
 
     widget.show()
 
     sys.exit(app.exec_())
-

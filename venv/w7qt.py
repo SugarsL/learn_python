@@ -34,6 +34,8 @@ class Ui_Form(object):
         self.pushButton_refresh.setObjectName("pushButton_refresh")
 
         self.retranslateUi(Form)
+
+        self.pushButton_quit.clicked.connect(Form.close)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
