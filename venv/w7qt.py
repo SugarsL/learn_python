@@ -11,9 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(667, 436)
+        Form.resize(696, 450)
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(20, 50, 541, 341))
+        self.tableWidget.setGeometry(QtCore.QRect(20, 50, 661, 341))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
@@ -34,7 +34,6 @@ class Ui_Form(object):
         self.pushButton_refresh.setObjectName("pushButton_refresh")
 
         self.retranslateUi(Form)
-
         self.pushButton_quit.clicked.connect(Form.close)
         QtCore.QMetaObject.connectSlotsByName(Form)
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
-    <height>436</height>
+    <width>696</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>20</x>
      <y>50</y>
-     <width>541</width>
+     <width>661</width>
      <height>341</height>
     </rect>
    </property>
@@ -88,38 +88,6 @@
  </widget>
  <resources/>
  <connections>
-  <connection>
-   <sender>pushButton_refresh</sender>
-   <signal>clicked()</signal>
-   <receiver>tableWidget</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>246</x>
-     <y>415</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>290</x>
-     <y>220</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_show_msg</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>296</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>333</x>
-     <y>217</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>pushButton_quit</sender>
    <signal>clicked()</signal>
